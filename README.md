@@ -66,3 +66,29 @@ ssh username@public_ip_address
 #CLeanup
 
 az group delete --name "testrg" 
+
+#Powershell Command
+
+#RG creation
+
+New-AzResourceGroup -Name testrg -Location EastUS
+
+#VM
+
+New-AzVm `
+    -ResourceGroupName "testrg" `
+    -Name "winvmshell" `
+    -Location "East US" `
+    -VirtualNetworkName "winvmshellvnet" `
+    -SubnetName "winvmshellsubnet" `
+    -SecurityGroupName "winvmshellnsg" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80,3389
+
+#List ip
+
+Get-AzPublicIpAddress -ResourceGroupName "testrg" | Select "IpAddress"
+
+#Cleamup
+
+Remove-AzResourceGroup -Name testrg
