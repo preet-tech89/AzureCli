@@ -33,3 +33,9 @@ az vm open-port \
   --resource-group "testrg" \
   --name "linuxclidemo" \
   --port "22"
+  
+#fetch public ip address
+az vm list-ip-addresses \
+  --resource-group "testrg" \
+  --name "linuxclidemo" 
+
