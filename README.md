@@ -1,4 +1,4 @@
-# AzureCli Commands
+# AzureCli and poweshell Commands
 
 #Login
 
@@ -68,6 +68,13 @@ ssh username@public_ip_address
 az group delete --name "testrg" 
 
 #Powershell Command
+
+#Login
+Connect-AzAccount -SubscriptionName "Pay-As-You-Go"
+
+#Point to correct context
+
+Set-AzContext -SubscriptionName "Pay-As-You-Go"
 
 #RG creation
 
