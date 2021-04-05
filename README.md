@@ -55,4 +55,10 @@ az vm list-ip-addresses \
   --name "linuxclidemo" \
   --output table
   
+#Login to win vm
 
+In Powershell: mstsc /v:publicIpAddress
+
+#Login to linux vm
+
+ssh username@public_ip_address
