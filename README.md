@@ -1,5 +1,12 @@
 # AzureCli Commands
 
+#Login
+az login
+az account-set --subscription "Pay-As-You-Go"
+
+#list
+az group list --output table
+
 #Create RG
 az group create \
     --name "testrg" \
