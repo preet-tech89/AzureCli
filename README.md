@@ -62,3 +62,7 @@ In Powershell: mstsc /v:publicIpAddress
 #Login to linux vm
 
 ssh username@public_ip_address
+
+#CLeanup
+
+az group delete --name "testrg" 
