@@ -52,5 +52,7 @@ az vm open-port \
 
 az vm list-ip-addresses \
   --resource-group "testrg" \
-  --name "linuxclidemo" 
+  --name "linuxclidemo" \
+  --output table
+  
 
