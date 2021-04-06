@@ -70,6 +70,7 @@ az group delete --name "testrg"
 #Powershell Command
 
 #Login
+
 Connect-AzAccount -SubscriptionName "Pay-As-You-Go"
 
 #Point to correct context
@@ -82,15 +83,18 @@ New-AzResourceGroup -Name testrg -Location EastUS
 
 #VM
 
-New-AzVm `
-    -ResourceGroupName "testrg" `
-    -Name "winvmshell" `
-    -Location "East US" `
-    -VirtualNetworkName "winvmshellvnet" `
-    -SubnetName "winvmshellsubnet" `
-    -SecurityGroupName "winvmshellnsg" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -OpenPorts 80,3389
+#Create a credential to use in the VM creation
+
+$username = 'demoadmin'
+$password = ConvertTo-SecureString '<password_tobe>' -AsPlainText -Force
+$WindowsCred = New-Object System.Management.Automation.PSCredential ($username, $password)
+
+New-AzVM `
+    -ResourceGroupName 'testrg' `
+    -Name 'gpdemo-win' `
+    -Image 'Win2019Datacenter' `
+    -Credential $WindowsCred `
+    -OpenPorts 3389 ##RDP port
 
 #List ip
 
