@@ -118,9 +118,10 @@ RUN bash config.sh #in case any custom script to be executed
 EXPOSE 80
 ENTRYPOINT ["node", "app.js"]
 
-# Install dockerhttps://docs.docker.com/desktop/#download-and-install
+#Install docker  https://docs.docker.com/desktop/#download-and-install
 
 #Build the container and tag it, defined in Dockerfile (dot at the end specify location of file)
+
 docker build -t myapp:v1 .
 
 #Run the container locally
